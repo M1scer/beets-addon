@@ -1,15 +1,18 @@
 FROM python:3.9-alpine
 
-# Install Bash and required packages for Beets and inotify-tools
+# Installiere Bash und benötigte Pakete (inklusive libsndfile via apk)
 RUN apk add --no-cache bash build-base libffi-dev openssl-dev inotify-tools libsndfile && \
     pip install --no-cache-dir beets pillow
-    
-# Create directories that will be mounted by Home Assistant
-RUN mkdir -p /data/input /data/output
 
-# Copy the startup script into the image and make it executable
+# Kopiere den Ordner mit der Standard-Konfiguration ins Image
+COPY default_config /default_config
+
+# Erstelle persistente Verzeichnisse (diese werden später von Home Assistant gemountet)
+RUN mkdir -p /data/input /data/output /data/beets
+
+# Kopiere das Startskript in das Image und mache es ausführbar
 COPY run.sh /run.sh
 RUN chmod +x /run.sh
 
-# Define the entry point for the container
+# Definiere den Entry Point für den Container
 CMD ["/run.sh"]

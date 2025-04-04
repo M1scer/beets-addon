@@ -1,0 +1,30 @@
+# /default_config/config.yaml
+# Grundkonfiguration für Beets
+
+# Zielverzeichnis für importierte Musikdateien
+directory: ${MUSIC_OUTPUT_DIR}
+
+# Speicherort der Beets-Datenbank (wird im persistenten Bereich abgelegt)
+library: /data/beets/library.db
+
+# Importverhalten
+import:
+  move: yes       # nach erfolgreichem Import werden die Dateien verschoben
+  copy: no        # Dateien werden nicht zusätzlich kopiert
+  resume: ask     # fragt nach, falls ein Import unterbrochen wurde
+
+# Aktivierte Plugins
+plugins:
+  - fetchart     # ergänzt Albumcover (und kann auch zur Metadatenergänzung genutzt werden)
+  - mbsync       # synchronisiert und ergänzt fehlende Metadaten von MusicBrainz
+
+# fetchart Plugin-Konfiguration
+fetchart:
+  auto: yes           # versucht automatisch Cover zu finden
+  cautious: yes       # verwendet einen vorsichtigen Ansatz
+  cover_names: [cover, folder]
+
+# mbsync Plugin-Konfiguration
+mbsync:
+  auto: yes           # automatische Metadaten-Synchronisation nach dem Import
+  # Hier können weitere mbsync-spezifische Einstellungen ergänzt werden
