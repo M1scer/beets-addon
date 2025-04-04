@@ -1,7 +1,7 @@
 FROM python:3.9-alpine
 
-# Installiere Bash, benötigte Pakete und curl (für bashio Installation)
-RUN apk add --no-cache bash build-base libffi-dev openssl-dev inotify-tools libsndfile curl tar && \
+# Installiere Bash, benötigte Pakete, curl und jq
+RUN apk add --no-cache bash build-base libffi-dev openssl-dev inotify-tools libsndfile curl jq tar && \
     pip install --no-cache-dir beets pillow && \
     # Installiere bashio
     echo "Installing bashio..." && \
@@ -13,8 +13,7 @@ RUN apk add --no-cache bash build-base libffi-dev openssl-dev inotify-tools libs
     tar zxvf /tmp/bashio.tar.gz --strip 1 -C /tmp/bashio && \
     mv /tmp/bashio/lib /usr/lib/bashio && \
     ln -s /usr/lib/bashio/bashio /usr/bin/bashio && \
-    # Bereinige unnötige Dateien
-    apk del --no-cache --purge curl tar && \
+    # Bereinige unnötige Dateien ohne curl, jq und tar zu löschen
     rm -f -r /tmp/*
 
 # Kopiere den Ordner mit der Standard-Konfiguration ins Image
