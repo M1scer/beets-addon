@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-echo "----------------------------------------------------------------"
+echo -e "\n ----------------------------------------------------------------"
 set -euo pipefail
 
 # Graceful shutdown bei SIGINT/SIGTERM
@@ -29,7 +29,7 @@ echo "Starting inotify-based Beets import..."
 echo "Input directory: $INPUT_DIR"
 echo "Output directory: $OUTPUT_DIR"
 echo "Beets configuration: $CONFIG_FILE"
-echo "Timeout: ${TIMEOUT} seconds of inactivity before starting the import."
+echo -e "Timeout: ${TIMEOUT} seconds of inactivity before starting the import. \n"
 
 # Hauptschleife: Überwachung und Import
 while true; do
