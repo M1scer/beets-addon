@@ -6,7 +6,7 @@ RUN apk add --no-cache bash build-base libffi-dev openssl-dev inotify-tools libs
 
     # Installiere bashio
     curl -J -L -o /tmp/bashio.tar.gz \
-        "https://github.com/hassio-addons/bashio/archive/${BASHIO_VERSION}.tar.gz" && \
+        "https://github.com/hassio-addons/bashio/archive/v0.16.3.tar.gz" && \
     mkdir /tmp/bashio && \
     tar zxvf /tmp/bashio.tar.gz --strip 1 -C /tmp/bashio && \
     mv /tmp/bashio/lib /usr/lib/bashio && \
