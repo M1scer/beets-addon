@@ -1,6 +1,0 @@
-name: Beets Add-On Repository
-slug: beets-addon-repository
-url: https://github.com/M1scer/beets-addon
-addons:
-  - slug: beets
-    name: Beets
