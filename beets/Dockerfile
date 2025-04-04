@@ -1,5 +1,8 @@
 FROM python:3.9-alpine
 
+# Install Bash
+RUN apk add --no-cache bash
+
 # Install required packages for building, beets and inotify-tools
 RUN apk add --no-cache build-base libffi-dev openssl-dev inotify-tools
 
