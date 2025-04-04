@@ -1,8 +1,11 @@
 {
   "name": "Beets Add-On Repository",
+  "slug": "beets-addon-repository",
   "url": "https://github.com/M1scer/beets-addon",
-  "maintainer": "M1scer"
   "addons": [
-    "beets"
+    {
+      "slug": "beets",
+      "name": "Beets",
+    }
   ]
 }
