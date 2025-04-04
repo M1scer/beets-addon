@@ -1,4 +1,4 @@
-FROM hassioaddons/base:latest
+FROM hassioaddons/base-python:latest
 
 # Installiere Bash und benötigte Pakete (inklusive libsndfile via apk)
 RUN apk add --no-cache bash build-base libffi-dev openssl-dev inotify-tools libsndfile && \
