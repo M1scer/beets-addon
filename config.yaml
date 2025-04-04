@@ -1,15 +1,15 @@
 name: Beets Music Organizer
-version: 0.0.6
+version: 0.0.7
 slug: beets
 description: A Home Assistant Add-On that uses beets to organize music files and enrich metadata.
 options:
-  music_input_dir: /media/input
-  music_output_dir: /media/output
-  import_timeout: 60
+  MUSIC_INPUT_DIR: /media/input
+  MUSIC_OUTPUT_DIR: /media/output
+  IMPORT_TIMEOUT: 60
 schema:
-  music_input_dir: str
-  music_output_dir: str
-  import_timeout: int
+  MUSIC_INPUT_DIR: str
+  MUSIC_OUTPUT_DIR: str
+  IMPORT_TIMEOUT: int
 map:
   - media:rw
   - config:rw
