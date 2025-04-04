@@ -1,12 +1,14 @@
 FROM python:3.9-alpine
 
-# Installiere Bash und benötigte Pakete (inklusive libsndfile via apk)
-RUN apk add --no-cache bash build-base libffi-dev openssl-dev inotify-tools libsndfile && \
+# Installiere Bash, benötigte Pakete und curl (für bashio Installation)
+RUN apk add --no-cache bash build-base libffi-dev openssl-dev inotify-tools libsndfile curl tar && \
     pip install --no-cache-dir beets pillow && \
-
     # Installiere bashio
+    echo "Installing bashio..." && \
     curl -J -L -o /tmp/bashio.tar.gz \
         "https://github.com/hassio-addons/bashio/archive/v0.16.3.tar.gz" && \
+    # Überprüfe, ob der Download erfolgreich war
+    if [ ! -f /tmp/bashio.tar.gz ]; then echo "bashio download failed"; exit 1; fi && \
     mkdir /tmp/bashio && \
     tar zxvf /tmp/bashio.tar.gz --strip 1 -C /tmp/bashio && \
     mv /tmp/bashio/lib /usr/lib/bashio && \
