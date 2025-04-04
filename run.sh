@@ -1,9 +1,12 @@
 #!/usr/bin/env bash
 echo "----------------------------------------------------------------"
-echo "V0.0.18"
+echo "V0.0.19"
 echo "----------------------------------------------------------------"
 
 set -euo pipefail
+
+# Lade bashio
+source /usr/lib/bashio/bashio.sh
 
 # Graceful shutdown bei SIGINT/SIGTERM
 trap 'echo "Shutting down..."; exit 0' SIGINT SIGTERM
