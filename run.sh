@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 echo "----------------------------------------------------------------"
-echo "V0.0.16"
+echo "V0.0.17"
 echo "----------------------------------------------------------------"
 
 set -euo pipefail
@@ -9,8 +9,8 @@ set -euo pipefail
 trap 'echo "Shutting down..."; exit 0' SIGINT SIGTERM
 
 # Verzeichnisse festlegen
-INPUT_DIR="${MUSIC_INPUT_DIR:-/data/input}"
-OUTPUT_DIR="${MUSIC_OUTPUT_DIR:-/data/output}"
+INPUT_DIR="${MUSIC_INPUT_DIR:-/media/download}"
+OUTPUT_DIR="${MUSIC_OUTPUT_DIR:-/media/musik}"
 CONFIG_DIR="/data/beets"
 CONFIG_FILE="${CONFIG_DIR}/config.yaml"
 
