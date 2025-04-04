@@ -1,7 +1,7 @@
 {
   "name": "Beets Music Organizer",
   "version": "1.0.0",
-  "slug": "beets_music_organizer",
+  "slug": "beets",
   "description": "A Home Assistant Add-On that uses beets to organize music files and enrich metadata.",
   "startup": "services",
   "boot": "auto",
