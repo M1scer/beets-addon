@@ -17,6 +17,9 @@
     "import_timeout": "int",
     "beets_import_args": "str"
   },
+  "map": [
+    "media:rw"
+  ],
   "ports": {},
   "arch": ["armhf", "armv7", "aarch64", "amd64", "i386"]
 }
