@@ -15,10 +15,11 @@ This is a custom Home Assistant add-on for **Beets**, a tool to organize and tag
 ### Volumes
 The following directories will be mapped to the container:
 
-- `/mnt/data/beets/config` → `/config`
-- `/mnt/data/music` → `/music`
-- `/mnt/data/ingest` → `/downloads`
+- `/mnt/data/addons/config/beets` → `/config`
+- `/mnt/data/media` → `/music`
 
 ### Web UI
 After installation, you can access Beets at the following URL:  
 `http://[HOST]:8337`
+
+Replace `[HOST]` with the actual IP address or domain name of your Home Assistant instance. This gives you the URL to access Beets' Web UI, e.g., `http://192.168.1.100:8337`.
