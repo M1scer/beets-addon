@@ -1,5 +1,5 @@
 name: Beets Music Organizer
-version: 0.0.23
+version: 0.0.24
 slug: beets
 description: A Home Assistant Add-On that uses beets to organize music files and enrich metadata.
 options:
