@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 echo "----------------------------------------------------------------"
-echo "V0.0.15"
+echo "V0.0.16"
 echo "----------------------------------------------------------------"
 
 set -euo pipefail
@@ -16,17 +16,9 @@ CONFIG_FILE="${CONFIG_DIR}/config.yaml"
 
 TIMEOUT="${IMPORT_TIMEOUT:-60}"
 
-
-echo "DEBUG: CONFIG_MUSIC_INPUT_DIR=${CONFIG_MUSIC_INPUT_DIR}"
-echo "DEBUG: CONFIG_MUSIC_OUTPUT_DIR=${CONFIG_MUSIC_OUTPUT_DIR}"
-echo "DEBUG: CONFIG_IMPORT_TIMEOUT=${CONFIG_IMPORT_TIMEOUT}"
-
-
 echo "DEBUG: MUSIC_INPUT_DIR=${MUSIC_INPUT_DIR}"
 echo "DEBUG: MUSIC_OUTPUT_DIR=${MUSIC_OUTPUT_DIR}"
 echo "DEBUG: IMPORT_TIMEOUT=${IMPORT_TIMEOUT}"
-
-
 
 # Ersetze den Platzhalter in der Beets-Config
 sed -i "s|\${MUSIC_OUTPUT_DIR}|${OUTPUT_DIR}|g" /default_config/config.yaml
