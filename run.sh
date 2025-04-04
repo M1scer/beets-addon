@@ -5,8 +5,8 @@ set -euo pipefail
 trap 'echo "Shutting down..."; exit 0' SIGINT SIGTERM
 
 # Konfiguration: Umgebungsvariablen lesen, oder Default-Werte nutzen
-INPUT_DIR="${MUSIC_INPUT_DIR:-/data/input}"
-OUTPUT_DIR="${MUSIC_OUTPUT_DIR:-/data/output}"
+INPUT_DIR="${MUSIC_INPUT_DIR:-/media/input}"
+OUTPUT_DIR="${MUSIC_OUTPUT_DIR:-/media/output}"
 TIMEOUT="${IMPORT_TIMEOUT:-60}"
 BEETS_ARGS="${BEETS_IMPORT_ARGS:---move}"
 
