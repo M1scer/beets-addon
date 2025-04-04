@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-echo -e "\n ----------------------------------------------------------------"
+echo "----------------------------------------------------------------"
 set -euo pipefail
 
 # Graceful shutdown bei SIGINT/SIGTERM
@@ -12,6 +12,18 @@ CONFIG_DIR="/data/beets"
 CONFIG_FILE="${CONFIG_DIR}/config.yaml"
 
 TIMEOUT="${IMPORT_TIMEOUT:-60}"
+
+
+echo "DEBUG: CONFIG_MUSIC_INPUT_DIR=${CONFIG_MUSIC_INPUT_DIR}"
+echo "DEBUG: CONFIG_MUSIC_OUTPUT_DIR=${CONFIG_MUSIC_OUTPUT_DIR}"
+echo "DEBUG: CONFIG_IMPORT_TIMEOUT=${CONFIG_IMPORT_TIMEOUT}"
+
+
+echo "DEBUG: MUSIC_INPUT_DIR=${MUSIC_INPUT_DIR}"
+echo "DEBUG: MUSIC_OUTPUT_DIR=${MUSIC_OUTPUT_DIR}"
+echo "DEBUG: IMPORT_TIMEOUT=${IMPORT_TIMEOUT}"
+
+
 
 # Ersetze den Platzhalter in der Beets-Config
 sed -i "s|\${MUSIC_OUTPUT_DIR}|${OUTPUT_DIR}|g" /default_config/config.yaml
@@ -29,7 +41,7 @@ echo "Starting inotify-based Beets import..."
 echo "Input directory: $INPUT_DIR"
 echo "Output directory: $OUTPUT_DIR"
 echo "Beets configuration: $CONFIG_FILE"
-echo -e "Timeout: ${TIMEOUT} seconds of inactivity before starting the import. \n"
+echo "Timeout: ${TIMEOUT} seconds of inactivity before starting the import."
 
 # Hauptschleife: Überwachung und Import
 while true; do
