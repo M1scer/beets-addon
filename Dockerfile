@@ -5,7 +5,7 @@ RUN apk add --no-cache bash build-base libffi-dev openssl-dev inotify-tools libs
     pip install --no-cache-dir beets pillow
 
 # Kopiere den Ordner mit der Standard-Konfiguration ins Image
-COPY default_config /default_config
+COPY default_config/config.yaml /default_config/config.yaml
 
 # Erstelle persistente Verzeichnisse (diese werden später von Home Assistant gemountet)
 RUN mkdir -p /data/input /data/output /data/beets

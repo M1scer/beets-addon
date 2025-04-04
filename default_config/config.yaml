@@ -11,7 +11,8 @@ library: /data/beets/library.db
 import:
   move: yes       # nach erfolgreichem Import werden die Dateien verschoben
   copy: no        # Dateien werden nicht zusätzlich kopiert
-  resume: ask     # fragt nach, falls ein Import unterbrochen wurde
+  resume: yes     # fragt nach, falls ein Import unterbrochen wurde
+  quiet: yes      # Frag nicht nach
 
 # Aktivierte Plugins
 plugins:
