@@ -1,25 +1,31 @@
-# Beets Music Organizer Add-on
+# Beets Music Organizer Home Assistant Add-On
 
-This is a custom Home Assistant add-on for **Beets**, a tool to organize and tag your music collection.
+This add-on uses [beets](https://beets.io) to organize music files and enrich their metadata.
 
 ## Installation
 
-1. Clone or download this repository to your Home Assistant instance.
-2. Navigate to the **Add-on Store** in Home Assistant.
-3. Click on **"Add Repository"**.
-4. Enter the URL of this repository and click **Add**.
-5. Install the **Beets** add-on from the store.
+1. Upload this repository to GitHub.
+2. In Home Assistant, add the repository URL under *Supervisor → Add-On Store → Add-on Repository*.
+3. Install the add-on from the Home Assistant Add-On Store.
+4. In the add-on settings, configure the following options:
+   - `music_input_dir`: Path to the directory where music files are stored.
+   - `music_output_dir`: Path to the directory where files will be moved and sorted.
+   - `import_timeout`: Time in seconds to wait for additional file changes before triggering the import.
+   - `beets_import_args`: Additional arguments to pass to the beets import command (e.g., "--move").
+5. Start the add-on.
 
-## Configuration
+## How It Works
 
-### Volumes
-The following directories will be mapped to the container:
+Upon starting, the add-on:
+- Waits for file changes in the configured input directory using `inotifywait`.
+- Starts a timeout period (default: 60 seconds) to collect additional changes.
+- Once no changes are detected within the timeout period, it triggers beets to import, enrich metadata, and move the files using the configured import arguments.
+- Files are organized based on the beets configuration (e.g., sorted by artist).
 
-- `/mnt/data/addons/config/beets` → `/config`
-- `/mnt/data/media` → `/music`
+## Customization
 
-### Web UI
-After installation, you can access Beets at the following URL:  
-`http://[HOST]:8337`
+To customize further (e.g., additional beets options, plugins, or functionality), adjust the commands in `run.sh`.
 
-Replace `[HOST]` with the actual IP address or domain name of your Home Assistant instance. This gives you the URL to access Beets' Web UI, e.g., `http://192.168.1.100:8337`.
+## License
+
+This project is licensed under the MIT License.
