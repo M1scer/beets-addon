@@ -1,4 +1,4 @@
-FROM python:3.9-alpine
+FROM ghcr.io/hassio-addons/addon-base-python:latest
 
 # Installiere Bash und benötigte Pakete (inklusive libsndfile via apk)
 RUN apk add --no-cache bash build-base libffi-dev openssl-dev inotify-tools libsndfile && \
