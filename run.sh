@@ -18,6 +18,10 @@ sed -i "s|\${MUSIC_OUTPUT_DIR}|${OUTPUT_DIR}|g" /default_config/config.yaml
 # Erstelle benötigte Verzeichnisse, falls sie noch nicht existieren
 mkdir -p "$INPUT_DIR" "$OUTPUT_DIR" "$CONFIG_DIR"
 
+echo
+echo
+echo
+
 # Initialisiere die Konfigurationsdatei, falls nicht vorhanden
 if [ ! -f "$CONFIG_FILE" ]; then
     echo "Keine Beets-Konfiguration gefunden in ${CONFIG_FILE}. Kopiere Standardkonfiguration..."
