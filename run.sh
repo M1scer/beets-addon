@@ -1,5 +1,8 @@
 #!/usr/bin/env bash
 echo "----------------------------------------------------------------"
+echo "V0.0.15"
+echo "----------------------------------------------------------------"
+
 set -euo pipefail
 
 # Graceful shutdown bei SIGINT/SIGTERM
