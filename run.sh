@@ -5,12 +5,13 @@ set -euo pipefail
 trap 'echo "Shutting down..."; exit 0' SIGINT SIGTERM
 
 # Verzeichnisse festlegen
-INPUT_DIR="${MUSIC_INPUT_DIR:-/data/input}"
-OUTPUT_DIR="${MUSIC_OUTPUT_DIR:-/data/output}"
+INPUT_DIR="${CONFIG_MUSIC_INPUT_DIR:-/data/input}"
+OUTPUT_DIR="${CONFIG_MUSIC_OUTPUT_DIR:-/data/output}"
 CONFIG_DIR="/data/beets"
 CONFIG_FILE="${CONFIG_DIR}/config.yaml"
+
 TIMEOUT="${IMPORT_TIMEOUT:-60}"
-BEETS_ARGS="${BEETS_IMPORT_ARGS:---move}"
+BEETS_ARGS="${BEETS_IMPORT_ARGS:}"
 
 # Ersetze den Platzhalter in der Beets-Config
 sed -i "s|\${MUSIC_OUTPUT_DIR}|${OUTPUT_DIR}|g" /default_config/config.yaml
