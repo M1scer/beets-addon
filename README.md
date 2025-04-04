@@ -25,7 +25,3 @@ Upon starting, the add-on:
 ## Customization
 
 To customize further (e.g., additional beets options, plugins, or functionality), adjust the commands in `run.sh`.
-
-## License
-
-This project is licensed under the MIT License.
