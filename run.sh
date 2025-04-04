@@ -10,8 +10,7 @@ OUTPUT_DIR="${CONFIG_MUSIC_OUTPUT_DIR:-/data/output}"
 CONFIG_DIR="/data/beets"
 CONFIG_FILE="${CONFIG_DIR}/config.yaml"
 
-TIMEOUT="${IMPORT_TIMEOUT:-60}"
-BEETS_ARGS="${BEETS_IMPORT_ARGS:}"
+TIMEOUT="${CONFIG_IMPORT_TIMEOUT:-60}"
 
 # Ersetze den Platzhalter in der Beets-Config
 sed -i "s|\${MUSIC_OUTPUT_DIR}|${OUTPUT_DIR}|g" /default_config/config.yaml
@@ -30,7 +29,6 @@ echo "Input directory: $INPUT_DIR"
 echo "Output directory: $OUTPUT_DIR"
 echo "Beets configuration: $CONFIG_FILE"
 echo "Timeout: ${TIMEOUT} seconds of inactivity before starting the import."
-echo "Beets import arguments: ${BEETS_ARGS}"
 
 # Hauptschleife: Überwachung und Import
 while true; do
@@ -43,7 +41,7 @@ while true; do
   done
 
   echo "No changes for ${TIMEOUT} seconds. Starting import..."
-  if ! beet --config "$CONFIG_FILE" import "$INPUT_DIR" ${BEETS_ARGS}; then
+  if ! beet --config "$CONFIG_FILE" import "$INPUT_DIR"; then
       echo "Beet import failed. Continuing to watch for changes..."
   else
       echo "Import completed successfully."
