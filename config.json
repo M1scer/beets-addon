@@ -1,0 +1,24 @@
+{
+  "name": "Beets Music Organizer",
+  "version": "1.0",
+  "slug": "beets",
+  "description": "Organize and tag your music collection with Beets.",
+  "startup": "application",
+  "boot": "auto",
+  "arch": ["amd64", "armv7", "aarch64"],
+  "ports": {
+    "8337/tcp": 8337
+  },
+  "volumes": [
+    "all_addon_configs",
+    "media",
+  ],
+  "map": [
+    "all_addon_configs:/config:rw",  # Mount all_addon_configs to /config in the container
+    "media:/music:rw",  # Mount media to /music in the container
+  ],
+  "image": "lscr.io/linuxserver/beets:latest",
+  },
+  "webui": "http://localhost:8337",
+  "webui_icon": "mdi:music-circle"
+}
