@@ -13,7 +13,7 @@ TIMEOUT="${IMPORT_TIMEOUT:-60}"
 BEETS_ARGS="${BEETS_IMPORT_ARGS:---move}"
 
 # Ersetze den Platzhalter in der Beets-Config
-sed -i "s|\${MUSIC_OUTPUT_DIR}|${OUTPUT_DIR}|g" /config/config.yaml
+sed -i "s|\${MUSIC_OUTPUT_DIR}|${OUTPUT_DIR}|g" /default_config/config.yaml
 
 # Erstelle benötigte Verzeichnisse, falls sie noch nicht existieren
 mkdir -p "$INPUT_DIR" "$OUTPUT_DIR" "$CONFIG_DIR"
