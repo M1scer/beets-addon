@@ -2,7 +2,7 @@ FROM python:3.9-alpine
 
 # Installiere Bash, benötigte Pakete, curl und jq
 RUN apk add --no-cache bash build-base libffi-dev openssl-dev inotify-tools libsndfile curl jq tar && \
-    pip install --no-cache-dir beets pillow && \
+    pip install --no-cache-dir beets pillow requests && \
     # Installiere bashio
     echo "Installing bashio..." && \
     curl -J -L -o /tmp/bashio.tar.gz \
