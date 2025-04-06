@@ -21,6 +21,7 @@ import:
 plugins:
   - fetchart     # ergänzt Albumcover (und kann auch zur Metadatenergänzung genutzt werden)
   - mbsync       # synchronisiert und ergänzt fehlende Metadaten von MusicBrainz
+  - fromfilename
 
 # fetchart Plugin-Konfiguration
 fetchart:
@@ -32,3 +33,6 @@ fetchart:
 mbsync:
   auto: yes           # automatische Metadaten-Synchronisation nach dem Import
   # Hier können weitere mbsync-spezifische Einstellungen ergänzt werden
+
+fromfilename:
+  format: $artist - $title
