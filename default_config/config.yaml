@@ -14,6 +14,9 @@ import:
   resume: yes     # fragt nach, falls ein Import unterbrochen wurde
   quiet: yes      # Frag nicht nach
 
+  timid: no
+  incremental: no
+
 # Aktivierte Plugins
 plugins:
   - fetchart     # ergänzt Albumcover (und kann auch zur Metadatenergänzung genutzt werden)
