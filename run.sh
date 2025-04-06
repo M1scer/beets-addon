@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 echo "----------------------------------------------------------------"
-echo "Starting V0.0.32"
+echo "Starting V0.0.33"
 echo "----------------------------------------------------------------"
 
 set -euo pipefail
@@ -34,7 +34,7 @@ fi
 # Einmaliger Import zu Beginn, falls noch Dateien im Verzeichnis liegen
 if [ "$(find "$INPUT_DIR" -type f | wc -l)" -gt 0 ]; then
     echo "Initial import: Dateien im Input-Verzeichnis gefunden. Starte einmaligen Import..."
-    if ! beet --v -config "$CONFIG_FILE" import "$INPUT_DIR"; then
+    if ! beet --verbose --config "$CONFIG_FILE" import "$INPUT_DIR"; then
         echo "Initialer Beet-Import fehlgeschlagen."
     else
         echo "Initialer Import erfolgreich abgeschlossen."
