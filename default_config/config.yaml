@@ -12,7 +12,7 @@ import:
   move: yes       # nach erfolgreichem Import werden die Dateien verschoben
   copy: no        # Dateien werden nicht zusätzlich kopiert
   resume: yes     # fragt nach, falls ein Import unterbrochen wurde
-  quiet: yes      # Frag nicht nach
+  quiet: no      # Frag nicht nach
 
   timid: no
   incremental: no
