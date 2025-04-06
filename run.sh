@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 echo "----------------------------------------------------------------"
-echo "V0.0.28"
+echo "V0.0.29"
 echo "----------------------------------------------------------------"
 
 set -euo pipefail
@@ -29,6 +29,18 @@ mkdir -p "$INPUT_DIR" "$OUTPUT_DIR" "$CONFIG_DIR"
 if [ ! -f "$CONFIG_FILE" ]; then
     echo "Keine Beets-Konfiguration gefunden in ${CONFIG_FILE}. Kopiere Standardkonfiguration..."
     cp /default_config/config.yaml "$CONFIG_FILE"
+fi
+
+# Einmaliger Import zu Beginn, falls noch Dateien im Verzeichnis liegen
+if [ "$(find "$INPUT_DIR" -type f | wc -l)" -gt 0 ]; then
+    echo "Initial import: Dateien im Input-Verzeichnis gefunden. Starte einmaligen Import..."
+    if ! beet --config "$CONFIG_FILE" import "$INPUT_DIR"; then
+        echo "Initialer Beet-Import fehlgeschlagen."
+    else
+        echo "Initialer Import erfolgreich abgeschlossen."
+    fi
+else
+    echo "Initial import: Keine Dateien im Input-Verzeichnis gefunden."
 fi
 
 echo "Starting inotify-based Beets import..."
