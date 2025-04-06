@@ -13,6 +13,7 @@ import:
   copy: no        # Dateien werden nicht zusätzlich kopiert
   resume: yes     # fragt nach, falls ein Import unterbrochen wurde
   quiet: no      # Frag nicht nach
+  write: yes
 
   timid: no
   incremental: no
